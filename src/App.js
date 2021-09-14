@@ -4,7 +4,6 @@ import $ from 'jquery'
 import './App.css';
 function App() {
   var [isOpen, setIsOpen] = useState(true);
-  var [isStopScroll, setIsStopScroll] = useState(true)
   function handleClickMenu() {
     var btnOpen = document.querySelector('.btn-open')
     var navList = document.querySelector('.nav-list')
