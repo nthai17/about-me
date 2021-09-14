@@ -1,0 +1,114 @@
+@media (max-width: 739px) {
+    .sm-12{
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .footer{
+        height: 120px;
+        flex-direction: column-reverse;
+    }
+    .App-header{
+        justify-content: space-between;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .App-header .info{
+        text-align: left;
+    }
+    .nav-list {
+        width: 150px;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 1px);
+        text-align: right;
+        padding-right: 8px;
+        padding-right: 8px;
+        right: -300px;
+        transition: all 0.3s linear;
+        background-color: #282c34;
+        z-index: 1;
+        opacity: 0;
+    }
+    .nav .nav-item a {
+        color: white;
+        font-size: 24px;
+        display: inline-block;
+        width: 100%;
+    }
+    .nav .nav-item{
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+    }
+    .nav .nav-item:not(:last-child){
+        border-bottom: 1px solid white;
+    }
+    .menu-btn{
+        transition: all 0.3s linear;
+    }
+    .btn-open{
+        display: block;
+    }
+    .btn-open, .btn-close{
+        font-size: 36px;
+        transition: all 0.3s linear;
+        position: relative;
+        z-index: 2;
+    }
+    .about-content{
+        padding-top: 24px;
+    }
+    .switch-box a {
+        line-height: 30px;
+    }
+    .switch-box {
+        column-gap: 15px;
+    }
+    .btn {
+        width: 110px;
+        height: 36px;
+        font-size: 20px;
+        border-radius: 18px;
+        display: flex;
+    }
+    .about-content, .resume-content, .products-content{
+        animation: fadeUp 0.3s linear;
+    }
+    @keyframes fadeUp {
+        from{
+            transform: translateY(-500px);
+        }
+        to{
+            transform: translateY(0px);
+        }
+    }
+    
+    .product{
+       flex-wrap: wrap;
+    } 
+    .product-desc {
+        text-align: justify;
+    }
+
+    .scroll-top-btn{
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 85%;
+        width: 60px;
+        height: 60px;
+        right: 20px;
+        background-color: #394b54;
+        transition: all 2s ease;
+    }
+    .scroll-top-btn i{
+        font-size: 20px;
+        color: white;
+    }
+    html {
+        scroll-behavior: smooth;
+      }
+}
