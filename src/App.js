@@ -126,8 +126,8 @@ function About() {
             <Link to="/products">Products</Link>
           </li>
         </ul>
-        <p className="about-me">I love creating web interfaces and making them work. With my hard work, initiative, and always ready to learn everything to meet the job, I have equipped myself with the necessary knowledge to have some interesting products.
-<br/>I look forward to working in a professional environment and becoming an excellent Front-end developer, contributing to the growth of the company. Along with the skills from the businesses I have worked with, I am confident that I will contribute to the company not only expertise but also many other aspects.</p>
+        <p className="about-me">I love creating web interfaces and making them work. During the past 8 months, I've taught myself HTML, CSS, JS, React and created several products, including the one you're visiting, using React. I want to learn and do more.
+<br/>So, I look forward to working in a professional environment and becoming an excellent Front-end developer, contributing to the growth of the company. Along with the skills from the businesses I have worked with, I am confident that I will contribute to the company not only expertise but also many other aspects.</p>
       </div>
       <div className="info-box l-4 sm-12">
         <div className="tab-avatar">
@@ -342,7 +342,7 @@ function Products() {
       <h1>Products</h1>
       <p className="l-7 sm-12">With my hard work, initiative, and always ready to learn everything to meet the job, I have equipped myself with the necessary knowledge to have some interesting products. I aspire to work in a professional environment and become an excellent Front-end developer.
       <br/>Give me a chance and challenge me!</p>
-      <a className="btn-dowload-cv" download="CV Nguyen Duy Thai Frontend.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Front-end-dev.pdf">Download CV</a>
+      <a className="btn-dowload-cv" download="CV-Nguyen-Duy-Thai-Fresher-FE.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Fresher-FE">Download CV</a>
       <RenderProducts/>
     </div>
   )
