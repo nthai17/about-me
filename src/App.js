@@ -3,28 +3,30 @@ import {Link, Route, useLocation} from "react-router-dom";
 import $ from 'jquery'
 import './App.css';
 function App() {
+  // khai báo state isOpen để đóng mở nav trên mobile
   var [isOpen, setIsOpen] = useState(true);
+
+  // xử lý sự kiện khi click vào nút menu trên moblie
   function handleClickMenu() {
-    var btnOpen = document.querySelector('.btn-open')
-    var navList = document.querySelector('.nav-list')
+    var btnOpen = document.querySelector('.btn-open');
+    var navList = document.querySelector('.nav-list');
     setIsOpen(!isOpen);
     if (isOpen){
       btnOpen.style.cssText = "transform: rotate(-180deg)";
       setTimeout(function(){
         btnOpen.className = btnOpen.className.replace('fa-bars', 'fa-times')
       },150);
-      navList.style.cssText = "right: 0; opacity: 1";
+      navList.style.cssText = "right: 0";
     } else {
       btnOpen.style.cssText = "transform: rotate(0deg);";
       setTimeout(function(){
         btnOpen.className = btnOpen.className.replace('fa-times', 'fa-bars')
       },150);
-      navList.style.cssText = "right: -300px; opacity: 0";
-    }
-  }
-  function closeMenu(){
-    handleClickMenu()
-  }
+      navList.style.cssText = "right: -300px";
+    };
+  };
+
+  // jquery tạo smooth khi click nút scrolltop
   function scrollToTop(){
     // window.scrollTo(0,0)
     $('html, body').animate({
@@ -32,6 +34,7 @@ function App() {
     }, 800)
   }
   
+  // khi mount và update / switch route thì thêm/xóa hiệu ứng cho nav-item
   const {pathname} = useLocation();
   useEffect(()=>{
     const listItem = Array.from(document.querySelectorAll('.nav-link'));
@@ -42,18 +45,26 @@ function App() {
       }
     }
   },[pathname]);
-  useEffect(()=>{
-    if (pathname !== '/'){
-      window.onscroll = ()=> {
-        var scrollTopBtn = document.querySelector('.scroll-top-btn');
-        if ((document.body.scrollTop > 350) || document.documentElement.scrollTop > 350) {
-          scrollTopBtn.style.display = 'flex';
-        } else {
-          scrollTopBtn.style.display = 'none';
-        }
+
+  // xử lý sự kiện khi scroll (cả khi click scrolltop btn và khi người dùng scroll)
+  // ẩn hiện nút scroll-btn
+  window.onscroll = ()=>{
+    var scrollTopBtn = document.querySelector('.scroll-top-btn');
+    if (((document.body.scrollTop > 350) || document.documentElement.scrollTop > 350)
+      && (pathname !== '/') && ($(window).width() < 740)) {
+      scrollTopBtn.style.display = 'flex';
+    } else {
+      scrollTopBtn.style.display = 'none';
       }
+  };
+
+  // xử lý đóng navbar trên mobile khi click mọi nơi
+  window.onclick = (e)=>{
+    if (($(window).width() < 740) && (!e.target.closest('.menu-btn')) && (isOpen === false)){
+      handleClickMenu()
     }
-  })
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -65,7 +76,7 @@ function App() {
           <div className="menu-btn" onClick={()=>handleClickMenu()}>
             <i className="btn-open fas fa-bars"></i>
           </div>
-          <ul className="nav-list" onClick={()=>closeMenu()}>
+          <ul className="nav-list" >
             <li className="nav-item">
               <Link className="nav-link" to="/">About</Link>
             </li>
@@ -100,13 +111,13 @@ function App() {
 
 export default App;
 
-
+// About component
 function About() {
   return (
     <div className="about-content row">
       <div className="description l-4 sm-12">
         <h1>Hello</h1>
-        <p>Here's who I am & what I want to do.</p>
+        <p>Let's see what I can do!</p>
         <ul className="switch-box">
           <li className="nav-item btn btn-resume">
             <Link to="/resume">Resume</Link>
@@ -135,6 +146,8 @@ function About() {
     </div>
   )
 }
+
+// Dữ liệu cho education
 const edus =[
   {
     time: '03/2021 - Present',
@@ -167,6 +180,7 @@ const edus =[
   },
 ];
 
+// Dữ liệu cho skills
 const skills = [
   {
     name: 'HTML, CSS:',
@@ -193,21 +207,20 @@ const skills = [
     knowledge:'Basic reading comprehension. Search for professional documents.'
   }
 ];
+
+// Dữ liệu cho products
 const products = [
   {
     name: 'Shopppee',
     title: 'Sample interface from shopee.',
-    desc: `The first product after I completed the HTML and CSS course on fullstack.edu.vn.
-    It took quite some time with self-study, but my skills improved a lot and created motivation for the next products.
-    Click on the image to view.`,
+    desc: 'The first product after I completed the HTML and CSS course on fullstack.edu.vn. It took quite some time with self-study, but my skills improved a lot and created motivation for the next products.',
     link: 'https://nthai17.github.io/shopppee',
     imgSrc: './img/product-shopee.png'
   },
   {
     name: 'Maxstay',
     title: 'Travel booking website.',
-    desc: `The product was created while I was learning Javascript at MindX. Use html, css and already have javascript to handle user events. I already know how to use Carousel 2 to create slideshow.
-    Click on the image to view.`,
+    desc: `The product was created while I was learning Javascript at MindX. Use html, css and already have javascript to handle user events. I already know how to use Carousel 2 to create slideshow.`,
     link: 'https://nthai17.github.io/maxstay',
     imgSrc: './img/product-maxstay.png'
   },
@@ -215,28 +228,27 @@ const products = [
     name: 'The band',
     title: 'Band website and ticket booking.',
     desc: `The interface is created during the learning process on W3school.com.
-    Using html, css, JS and tested everything I learned on W3school.
-    Click on the image to view.`,
+    Using html, css, JS and tested everything I learned on W3school.`,
     link: 'https://nthai17.github.io/theband',
     imgSrc: './img/product-theband.png'
   },
   {
     name: 'Music-player',
     title: 'Music player',
-    desc: `The product was created while I was practicing my logic with JS, when I was about to finish the basic JS course on F8.edu.vn.
-    Click on the image to view.`,
-    link: 'https://nthai17.github.io/mucsic-player',
+    desc: `The product was created while I was practicing my logic with JS, when I was about to finish the basic JS course on F8.edu.vn.`,
+    link: 'https://nthai17.github.io/music-player',
     imgSrc: './img/product-music-player.png'
   },
   {
     name: 'Todo-list-react',
     title: 'Todo list app',
-    desc: `The product is the result when I taught myself React. It's a bit sketchy, but I have a basic understanding of Components, state, props. I need more hands-on experience with React.
-    Click on the image to view.`,
+    desc: `The product is the result when I taught myself React. It's a bit sketchy, but I have a basic understanding of Components, state, props. I need more hands-on experience with React.`,
     link: 'https://todo-list-nthai17.vercel.app/',
     imgSrc: './img/product-todo-list.png'
   },
 ]
+
+// render list education từ dữ liệu education
 function RenderEducation(){
   return edus.map((edu, index)=>{
     return (<div key={index} className="education-content">
@@ -259,6 +271,7 @@ function RenderEducation(){
   })
 }
 
+// render list skills từ dữ liệu skills
 function RenderSkills(){
   return skills.map((skill, index)=>{
     return (
@@ -272,6 +285,8 @@ function RenderSkills(){
           </div>)
   })
 }
+
+// render list products từ dữ liệu products
 function RenderProducts(){
     return products.map((product, index)=>{
       return (
@@ -282,6 +297,7 @@ function RenderProducts(){
               <h4>{product.title}</h4>
             </div>
             <p className="product-desc">{product.desc}</p>
+            <p>Click on the image to view.</p>
           </div>
           <div className="l-5 product-view sm-12">
             <a href={product.link} target="_blank"rel="noreferrer" className="preview">
@@ -291,8 +307,9 @@ function RenderProducts(){
         </div>
       )
     })
-}
+};
 
+// resume component
 function Resume() {
   return (
     <div className="resume-content">
@@ -301,7 +318,7 @@ function Resume() {
         <div className="l-6 sm-12">
           <div className="tittle row">
             <h2>Ecucation</h2>
-            <a className="btn-dowload-cv" download="CV Nguyen Duy Thai Frontend.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Front-end-dev.pdf">Download CV</a>
+            <Link className="btn-move-to-products" to="/products">View my products</Link>
           </div>
           <RenderEducation/>
         </div>
@@ -318,11 +335,14 @@ function Resume() {
   )
 }
 
+// produc component
 function Products() {
   return (
     <div className="products-content row">
       <h1>Products</h1>
-      <p className="l-7 sm-12">With my hard work, initiative, and always ready to learn everything to meet the job, I have equipped myself with the necessary knowledge to have some interesting products. I aspire to work in a professional environment and become an excellent Front-end developer.</p>
+      <p className="l-7 sm-12">With my hard work, initiative, and always ready to learn everything to meet the job, I have equipped myself with the necessary knowledge to have some interesting products. I aspire to work in a professional environment and become an excellent Front-end developer.
+      <br/>Give me a chance and challenge me!</p>
+      <a className="btn-dowload-cv" download="CV Nguyen Duy Thai Frontend.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Front-end-dev.pdf">Download CV</a>
       <RenderProducts/>
     </div>
   )

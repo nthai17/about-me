@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* Tái sử dụng */
 *{
   margin: 0;
   padding: 0;
@@ -28,14 +29,44 @@ code {
   padding-right: 16px;
   padding-left: 16px;
 }
+.l-5{
+  width: 41.66667%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.l-6{
+  width: 50%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.l-7{
+  width: 58.33333%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.l-9{
+  width: 75%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
 .active{
   color: #2196f3 !important;
 }
 .App {
   text-align: center;
 }
+ul{
+  list-style: none;
+}
+.container{
+  margin-top: 80px;
+}
+.scroll-top-btn{
+  display: none;
+}
+/*  */
 
-
+/* header css */
 .App-header {
   background-color: #282c34;
   height: 80px;
@@ -50,15 +81,11 @@ code {
   right: 0;
   z-index: 10;
 }
-
 .info h2 {
   font-size: 30px;
 }
 .info p {
   font-size: 16px;
-}
-ul{
-  list-style: none;
 }
 .nav-list{
   width: 400px;
@@ -71,13 +98,12 @@ ul{
   text-decoration: none;
   color: white;
 }
-.btn-close, .btn-open{
+.menu-btn{
   display: none;
 }
+/*  */
 
-.container{
-  margin-top: 80px;
-}
+/* About component */
 .description{
   text-align: left;
 }
@@ -89,7 +115,6 @@ ul{
   font-size: 24px;
   font-weight: 500;
 }
-
 .switch-box {
   margin: 30px 0;
   display: flex;
@@ -101,7 +126,7 @@ ul{
   width: 100%;
   height: 100%;
   text-decoration: none;
-  line-height: 24px;
+  line-height: 27px;
   text-align: center;
 }
 .btn {
@@ -128,24 +153,6 @@ ul{
   margin-bottom: 50px;
   line-height: 1.7;
 }
-.footer{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 80px;
-  background-color: #282c34;
-}
-
-.footer h3, .footer p {
-  color: aliceblue;
-}
-
-.products-list{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
 .about-content{
   padding: 100px 0;
   background-image: url('./img/about-bg.jpg');
@@ -165,7 +172,6 @@ ul{
   margin: auto;
   border-radius: 10px;
 }
-
 .avatar{
   position: relative;
   width: 200px;
@@ -196,12 +202,11 @@ ul{
   color: black;
   font-size: 40px;
 }
+/*  */
 
-
-/* resume */
+/* Resume component */
 .resume-content, .products-content{
-  background-image: linear-gradient( 
-    225deg, #000000, #282c34);
+  background: radial-gradient(circle, rgba(77,94,126,1) 17%, rgba(40,44,52,1) 55%, rgba(0,0,0,1) 100%);
   padding-bottom: 36px;
   animation: fadeIn 0.3s linear;
 }
@@ -213,21 +218,14 @@ ul{
 .education  .education-content{
   margin-top: 24px;
 }
-.l-6{
-  width: 50%;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.l-7{
-  width: 58.33333%;
-  padding-left: 16px;
-  padding-right: 16px;
-}
 .tittle{
   justify-content: space-between;
   margin-top: 46px;
 }
-.btn-dowload-cv{
+.tittle h2{
+  color: white;
+}
+.btn-dowload-cv, .btn-move-to-products{
   height: 36px;
   width: 120px;
   text-decoration: none;
@@ -236,6 +234,12 @@ ul{
   color: white;
   background-color: #2196f3;
   animation: scaleUpBtn 1.5s linear infinite;
+}
+.btn-move-to-products{
+  width: 150px;
+}
+.btn-dowload-cv{
+  margin-top: 36px;
 }
 @keyframes scaleUpBtn {
   0% {
@@ -248,7 +252,7 @@ ul{
     transform: scale(1);
   }
 }
-.btn-dowload-cv:hover{
+.btn-dowload-cv:hover, .btn-move-to-products:hover{
   background-color: cadetblue;
   color: coral;
 }
@@ -257,11 +261,6 @@ ul{
   border-radius: 10px;
   padding: 16px 0;
   background-color: white;
-}
-.skill-content{
-  margin-top: 24px;
-  margin-left: 0;
-   margin-right: 0;
 }
 .education-content > div:not(:last-child){
   margin-bottom: 24px;
@@ -277,7 +276,6 @@ ul{
   justify-content: space-between;
   margin-left: 0;
 }
-
 .education-course h4{
   font-weight: 500;
 }
@@ -287,17 +285,14 @@ ul{
 .school-course, .skill-name, .skill-used, .knowledge{
   text-align: left;
 }
-.l-5{
-  width: 41.66667%;
-  padding-left: 16px;
-  padding-right: 16px;
+.skill-content{
+  margin-top: 24px;
+  margin-left: 0;
+   margin-right: 0;
 }
+/*  */
 
-.tittle h2{
-  color: white;
-}
-
-/* products */
+/* Products component */
 .products-content{
   flex-direction: column;
   align-items: center;
@@ -309,9 +304,10 @@ ul{
 }
 .products-content > p{
   margin-top: 20px;
-  text-align: center;
+  text-align: justify;
   font-size: 20px;
   color: white;
+  padding: 0;
 }
 .product{
   background-color: white;
@@ -319,10 +315,11 @@ ul{
   display: flex;
   align-items: flex-start;
 } 
-.l-9{
-  width: 75%;
-  padding-left: 16px;
-  padding-right: 16px;
+.products-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
 }
 .product-text{
   text-align: left;
@@ -342,7 +339,6 @@ ul{
 }
 .product-desc{
   margin-top: 24px;
-
 }
 .product-view{
   padding-right: 0;
@@ -365,7 +361,6 @@ ul{
 .preview img{
   width: 100%;
 }
-
 @keyframes fadeIn {
   from{
     transform: translateX(1000px);
@@ -374,7 +369,18 @@ ul{
     transform: translateX(0px);
   }
 }
+/*  */
 
-.scroll-top-btn{
-  display: none;
+/* footer css */
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  background-color: #282c34;
 }
+
+.footer h3, .footer p {
+  color: aliceblue;
+}
+/*  */
