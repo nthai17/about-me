@@ -86,6 +86,9 @@ function App() {
             <li className="nav-item">
               <Link className="nav-link" to="/products">Products</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/certificates">Ceftificates</Link>
+            </li>
           </ul>
         </div>
       </header>
@@ -93,6 +96,7 @@ function App() {
         <Route exact path="/" component={About}/>
         <Route path="/resume" component={Resume}/>
         <Route path="/products" component={Products}/>
+        <Route path="/certificates" component={Certificates}/>
       </div>
       <div className="footer">
         <div className="scroll-top-btn" onClick={()=>{scrollToTop()}}><i className="fas fa-chevron-up"></i></div>
@@ -248,6 +252,20 @@ const products = [
   },
 ]
 
+// Dữ liệu cho certificate
+const certificates = [
+  {
+    name: 'Certificate [MindX] Code for Everyone course.',
+    download: 'Certificate [MindX] Code for Everyone course.pdf',
+    src: './pdf/Certificate [MindX] Code for Everyone course.pdf'
+  },
+  {
+    name: 'Certificate [MindX x TopCV] Web Coding Challenge.',
+    download: 'Certificate [MindX x TopCV] Web Coding Challenge.pdf',
+    src: './pdf/Certificate [MindX x TopCV] Web Coding Challenge.pdf'
+  }
+]
+
 // render list education từ dữ liệu education
 function RenderEducation(){
   return edus.map((edu, index)=>{
@@ -300,13 +318,24 @@ function RenderProducts(){
             <p>Click on the image to view.</p>
           </div>
           <div className="l-5 product-view sm-12">
-            <a href={product.link} target="_blank"rel="noreferrer" className="preview">
+            <a href={product.link} target="_blank" rel="noreferrer" className="preview">
               <img src={product.imgSrc} alt={product.name}></img>
             </a>
           </div>
         </div>
       )
     })
+};
+
+// render list certificates từ dữ liệu certificates
+function RenderCertificates(){
+  return certificates.map((certificate, index)=>{
+    return (
+    <a key={index} className="certificate-link" download={certificate.download} 
+      href={certificate.src}>
+      {certificate.name}</a>
+    )
+  })
 };
 
 // resume component
@@ -342,8 +371,21 @@ function Products() {
       <h1>Products</h1>
       <p className="l-7 sm-12">With my hard work, initiative, and always ready to learn everything to meet the job, I have equipped myself with the necessary knowledge to have some interesting products. I aspire to work in a professional environment and become an excellent Front-end developer.
       <br/>Give me a chance and challenge me!</p>
-      <a className="btn-dowload-cv" download="CV-Nguyen-Duy-Thai-Fresher-FE.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Fresher-FE">Download CV</a>
+      <a className="btn-dowload-cv" download="CV-Nguyen-Duy-Thai-Fresher-FE.pdf" href="./pdf/CV_Nguyen_Duy_Thai_Fresher-FE.pdf">Download CV</a>
       <RenderProducts/>
+    </div>
+  )
+}
+
+function Certificates() {
+  return (
+    <div className="certificate-content row">
+      <h1>Certificates</h1>
+      <p className="l-7 sm-12">Besides self-study, I took MindX's Javascript courses and completed the basic course.
+      <br/>I also joined the Wed Coding Challenge organized by MindX in conjunction with TopCV to learn and challenge myself.
+      <br/>Below are the certificates.</p>
+        <RenderCertificates/>
+      <p class="thanks">Thank you!</p>
     </div>
   )
 }

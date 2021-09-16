@@ -21,12 +21,12 @@
         font-size: 20px;
         color: white;
     }
-    .about-content, .resume-content, .products-content{
+    .about-content, .resume-content, .products-content, .certificate-content{
         animation: fadeUp 0.3s linear;
     }
     @keyframes fadeUp {
         from{
-            transform: translateY(-500px);
+            transform: translateY(-200px);
         }
         to{
             transform: translateY(0px);

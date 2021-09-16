@@ -88,7 +88,7 @@ ul{
   font-size: 16px;
 }
 .nav-list{
-  width: 400px;
+  width: 480px;
   display: flex;
   list-style: none;
   margin-left: 0;
@@ -205,12 +205,12 @@ ul{
 /*  */
 
 /* Resume component */
-.resume-content, .products-content{
+.resume-content, .products-content, .certificate-content{
   background: radial-gradient(circle, rgba(77,94,126,1) 17%, rgba(40,44,52,1) 55%, rgba(0,0,0,1) 100%);
   padding-bottom: 36px;
   animation: fadeIn 0.3s linear;
 }
-.resume-content > h1, .products-content h1{
+.resume-content > h1, .products-content > h1, .certificate-content > h1{
   margin-top: 24px;
   display: inline-block;
   color: white;
@@ -293,16 +293,14 @@ ul{
 /*  */
 
 /* Products component */
-.products-content{
+.products-content, .certificate-content{
   flex-direction: column;
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
 }
-.products-content > h1{
-  margin-top: 24px;
-}
-.products-content > p{
+
+.products-content > p, .certificate-content > p:not(:last-child){
   margin-top: 20px;
   text-align: justify;
   font-size: 20px;
@@ -363,13 +361,34 @@ ul{
 }
 @keyframes fadeIn {
   from{
-    transform: translateX(1000px);
+    transform: translateX(400px);
   }
   to{
     transform: translateX(0px);
   }
 }
 /*  */
+/* Certificate component*/
+.certificate-content{
+  min-height: 600px;
+  justify-content: flex-start;
+}
+.certificate-link {
+  font-size: 22px;
+  color: #92b3f3;
+  margin-top: 20px;
+}
+.certificate-link:hover{
+  color: chocolate;
+}
+.thanks{
+  font-family: 'Pattaya', sans-serif;
+  margin: 96px auto;
+  font-size: 40px;
+  color: white;
+}
+/*  */
+
 
 /* footer css */
 .footer{
