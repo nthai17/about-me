@@ -385,7 +385,7 @@ function Certificates() {
       <br/>I also joined the Wed Coding Challenge organized by MindX in conjunction with TopCV to learn and challenge myself.
       <br/>Below are the certificates.</p>
         <RenderCertificates/>
-      <p class="thanks">Thank you!</p>
+      <h1 class="thanks"><i>Thank you!</i></h1>
     </div>
   )
 }

@@ -210,7 +210,7 @@ ul{
   padding-bottom: 36px;
   animation: fadeIn 0.3s linear;
 }
-.resume-content > h1, .products-content > h1, .certificate-content > h1{
+.resume-content > h1, .products-content > h1, .certificate-content > h1:not(:last-child){
   margin-top: 24px;
   display: inline-block;
   color: white;
@@ -382,10 +382,10 @@ ul{
   color: chocolate;
 }
 .thanks{
-  font-family: 'Pattaya', sans-serif;
-  margin: 96px auto;
+  display: inline-block;
+  margin: 138px auto 20px;
   font-size: 40px;
-  color: white;
+  color: #ffffffad;
 }
 /*  */
 
