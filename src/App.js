@@ -70,7 +70,7 @@ function App() {
       <header className="App-header">
         <div className="info">
           <h2>Nguyễn Duy Thái</h2>
-          <p>Front-end Developer (Fresher)</p>
+          <p>Front-end Developer</p>
         </div>
         <div className="nav">
           <div className="menu-btn" onClick={()=>handleClickMenu()}>
@@ -195,7 +195,7 @@ const skills = [
     knowledge:'Know how to build responsive websites (plain code or use the grid system in Bootstrap)'
   },
   {
-    name: 'Javasctipt:',
+    name: 'Javascript:',
     knowledge:'Have basic knowledge, can be applied to build functions, handle user events on the website. Knowledge of jquery, Reactjs at basic level.'
   },
   {
@@ -242,13 +242,6 @@ const products = [
     desc: `The product was created while I was practicing my logic with JS, when I was about to finish the basic JS course on F8.edu.vn.`,
     link: 'https://nthai17.github.io/music-player',
     imgSrc: './img/product-music-player.png'
-  },
-  {
-    name: 'Todo-list-react',
-    title: 'Todo list app',
-    desc: `The product is the result when I taught myself React. It's a bit sketchy, but I have a basic understanding of Components, state, props. I need more hands-on experience with React.`,
-    link: 'https://todo-list-nthai17.vercel.app/',
-    imgSrc: './img/product-todo-list.png'
   },
 ]
 
