@@ -195,8 +195,8 @@ const skills = [
     knowledge:'Know how to build responsive websites (plain code or use the grid system in Bootstrap)'
   },
   {
-    name: 'Javascript:',
-    knowledge:'Have basic knowledge, can be applied to build functions, handle user events on the website. Knowledge of jquery, Reactjs at basic level.'
+    name: 'Javascript, ReactJS:',
+    knowledge:'Have basic knowledge, can be applied to build functions, handle user events on the website. Knowledge of jquery, ReactJS at basic level.'
   },
   {
     name: 'Git - Github:',
@@ -214,13 +214,6 @@ const skills = [
 
 // Dữ liệu cho products
 const products = [
-  {
-    name: 'Shopppee',
-    title: 'Sample interface from shopee.',
-    desc: 'The first product after I completed the HTML and CSS course on fullstack.edu.vn. It took quite some time with self-study, but my skills improved a lot and created motivation for the next products.',
-    link: 'https://nthai17.github.io/shopppee',
-    imgSrc: './img/product-shopee.png'
-  },
   {
     name: 'Maxstay',
     title: 'Travel booking website.',
@@ -243,6 +236,13 @@ const products = [
     link: 'https://nthai17.github.io/music-player',
     imgSrc: './img/product-music-player.png'
   },
+  {
+    name: 'Shopppee',
+    title: 'Sample interface from shopee.',
+    desc: 'The first product after I completed the HTML and CSS course on fullstack.edu.vn. It took quite some time with self-study, but my skills improved a lot and created motivation for the next products.',
+    link: 'https://nthai17.github.io/shopppee',
+    imgSrc: './img/product-shopee.png'
+  }
 ]
 
 // Dữ liệu cho certificate
@@ -378,7 +378,7 @@ function Certificates() {
       <br/>I also joined the Wed Coding Challenge organized by MindX in conjunction with TopCV to learn and challenge myself.
       <br/>Below are the certificates.</p>
         <RenderCertificates/>
-      <h1 class="thanks"><i>Thank you!</i></h1>
+      <h1 className="thanks"><i>Thank you!</i></h1>
     </div>
   )
 }
